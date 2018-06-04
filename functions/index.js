@@ -170,7 +170,7 @@ usersAPI.post('/:userId/positions', authenticate, (req,res) => {
     usersRef.child(`${userId}/positions/${pushKey}`).set(true);
     positionsRef.child(pushKey).set(data).then(() => {
         res.status(200).send({
-            "message": "create position successful.",
+            "message": "Position Added Successfully.",
             "code": pushKey
         });
         return;
@@ -185,9 +185,11 @@ usersAPI.get('/:userId/positions', authenticate, (req, res) => {
     let positions = {};
     usersRef.child(`${userId}/positions`).once('value', userPositionsSnapshot => {
         positionsRef.once("value", positionsSnapshot => {
-            Object.keys(userPositionsSnapshot.val()).forEach(element => {
-                positions[element] = positionsSnapshot.child(element).val();
-            });
+            if(userPositionsSnapshot.exists()) {
+                Object.keys(userPositionsSnapshot.val()).forEach(element => {
+                    positions[element] = positionsSnapshot.child(element).val();
+                });
+            }
         }).then(()=> {
             res.status(200).send(positions);
             return;
@@ -213,6 +215,7 @@ usersAPI.put('/:userId/positions/:positionId', authenticate, (req, res) => {
     const positionId = req.params.positionId;
     let data = req.body;
     data.updatedTime = Date.now();
+    data.createdDate = Date.now();
         positionsRef.child(positionId).once('value', snapshot => {
         if(snapshot.exists()) {
             positionsRef.child(positionId).update(req.body).then(()=> {
@@ -698,6 +701,7 @@ usersAPI.post('/:userId/candidates/email', authenticate, (req,res) => {
                 mailOptions.text = `Hello, ${name} you're link to hireq Test is here: http://localhost:3000/candidate?id=${data.candidateId}`
                 mailTransport.sendMail(mailOptions).then(() => {
                     candidatesRef.child(`${data.candidateId}/emailSent`).set(true);
+                    candidatesRef.child(`${data.candidateId}/sentDate`).set(Date.now());
                     res.status(200).send(`send invitation email to: ${email} completed`);
                     return;
                 }).catch((error) => {
