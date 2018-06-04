@@ -1,0 +1,47 @@
+[debug] [2018-05-24T07:57:03.658Z] ----------------------------------------------------------------------
+[debug] [2018-05-24T07:57:03.660Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\uklid\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-05-24T07:57:03.660Z] CLI Version:   3.18.4
+[debug] [2018-05-24T07:57:03.660Z] Platform:      win32
+[debug] [2018-05-24T07:57:03.660Z] Node Version:  v8.9.3
+[debug] [2018-05-24T07:57:03.661Z] Time:          Thu May 24 2018 14:57:03 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-24T07:57:03.661Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-24T07:57:03.673Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-24T07:57:03.674Z] > authorizing via signed-in user
+[debug] [2018-05-24T07:57:03.675Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-24T07:57:03.675Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/jDApvau54tllw1ahxkWElH4FXd-YBb0FK6WMtNCgBaCjJwb3Dp19dbaqdy8UkIT6',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu May 24 2018 14:57:03 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-24T07:57:03.911Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-24T07:57:03.917Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/hireq-api  
+  
+ Thu May 24 2018 14:57:03 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-24T07:57:05.380Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-24T07:57:05.380Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/hireq-api/tokens  
+  
+ Thu May 24 2018 14:57:05 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-24T07:57:06.440Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-24T07:57:06.441Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/hireq-api  
+  
+ Thu May 24 2018 14:57:06 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-24T07:57:07.787Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\uklid\Desktop\hireq-api'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-05-24T07:57:08.870Z] Fetching environment
+[debug] [2018-05-24T07:57:08.872Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/893222093024:getServerAppConfig  
+  
+ Thu May 24 2018 14:57:08 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-05-24T07:57:09.656Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-24T07:57:09.656Z] Starting @google-cloud/functions-emulator
+[debug] [2018-05-24T07:57:11.185Z] Parsing function triggers
+[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
+[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
+[info] +  functions: users: http://localhost:5000/hireq-api/us-central1/users
+[info] +  functions: jobs: http://localhost:5000/hireq-api/us-central1/jobs
+[info] +  functions: candidates: http://localhost:5000/hireq-api/us-central1/candidates
